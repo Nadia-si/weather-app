@@ -36,6 +36,7 @@ li:first-letter {
   padding: 20px;
   border: 1px solid #dadde1;
   border-radius: 5px;
+  background-color: #c4e1d9;
 }
 
 a:link {
