@@ -43,8 +43,19 @@ function displayTemperature(response) {
   );
 }
 
-let apiKey = "1a8e14dead82d28c527cf46b1e514682";
-let city = "Uppsala";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+function search(city) {
+  let apiKey = "1a8e14dead82d28c527cf46b1e514682";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
-axios.get(apiUrl).then(displayTemperature);
+  axios.get(apiUrl).then(displayTemperature);
+}
+
+function handlesubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  search(cityInputElement.value);
+}
+
+search("Uppsala");
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handlesubmit);
